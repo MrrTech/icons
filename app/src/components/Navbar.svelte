@@ -7,9 +7,13 @@
 
 <nav class="navbar navbar-expand-lg fixed-top bg-primary">
   <div class="container-fluid">
-    <span class="navbar-brand">
+    <a
+      class="navbar-brand"
+      href="https://mrrtech.github.io/profile/"
+      target="_blank"
+    >
       <img src={logo} alt="logo" width="100px" />
-    </span>
+    </a>
 
     <form role="search" on:submit|preventDefault>
       <input
@@ -29,6 +33,13 @@
           width="30px"
           style="cursor: pointer"
         />
+      </a>
+      <a
+        class="btn btn-dark ms-1"
+        target="_blank"
+        href="{import.meta.env.BASE_URL}api.json"
+      >
+        api.json
       </a>
     </div>
   </div>

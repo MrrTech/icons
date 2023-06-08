@@ -11,7 +11,7 @@
 
   $: filteredIcons = icons.map((icon) => ({
     icon,
-    show: icon.includes(search),
+    show: normalizeLabel(icon).toLowerCase().includes(search.toLowerCase()),
   }))
 
   let iconsContainer: HTMLElement
@@ -57,9 +57,12 @@
             data-bs-title={normalizeLabel(icon)}
           >
             <div class="card-body h-100 p-2 text-center">
-              <a target="_blank" href="{import.meta.env.BASE_URL}{icon}.svg">
+              <a
+                target="_blank"
+                href="{import.meta.env.BASE_URL}api/{icon}.svg"
+              >
                 <img
-                  src="{import.meta.env.BASE_URL}{icon}.svg"
+                  src="{import.meta.env.BASE_URL}api/{icon}.svg"
                   alt={icon}
                   style="max-width: 50px"
                   loading="lazy"
@@ -75,6 +78,7 @@
                     index,
                     window.location.origin +
                       import.meta.env.BASE_URL +
+                      "api/" +
                       icon +
                       ".svg"
                   )}
